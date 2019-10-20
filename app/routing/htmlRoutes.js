@@ -6,8 +6,8 @@ module.exports = function(app){
     app.get("/survey",function(req, res){
         res.sendFile(path.join(__dirname + "/../public/survey.html"));
     });
-    // app.use failsafe defaults any route not predefined above
-    app.use(function(req, res){
+    // "*" failsafe defaults any route not predefined
+    app.get("*", function(req, res){
         res.sendFile(path.join(__dirname + "/../public/home.html"));
     });
 };
