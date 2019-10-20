@@ -82,4 +82,5 @@ var friends = [
     }
 ];
 
+// Set up array for export
 module.exports = friends;
