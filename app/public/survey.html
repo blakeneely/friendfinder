@@ -235,6 +235,19 @@
         <br>
         <br>
     </section>
+    <div class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+          <!-- Any other Bulma elements you want -->
+          <h2 class="is-size-2"><strong>Best Match</strong></h2>
+          <h3 class="is-size-3" id="matchName"></h3>
+          <img id="matchImg" src="https://image.tmdb.org/t/p/original/ktjfylBzoJJik70F5VyGFiRgxUf.jpg">
+        </div>
+        <button class="modal-close is-large" aria-label="close"></button>
+    </div>
+
+
+
     <script>
     //Function to validate all fields completed
     var validateForm = function(){
@@ -281,11 +294,15 @@
             var currentURL = window.location.origin;
             // Post data to API
             $.post(currentURL + "/api/friends", userData, function(data){
-                alert("IT'S WORKING!");
+                $(".modal").toggleClass("is-active")
+                // alert("IT'S WORKING!");
             })
         }
     })
 
+    $(".modal-close").on("click", function(){
+        $(".modal").toggleClass("is-active");
+    })
     
     
     </script>
