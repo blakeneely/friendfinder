@@ -7,6 +7,7 @@
     <title>Friend Finder</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
 <body>
     <section class="container" style="margin-top:30px">
@@ -23,18 +24,18 @@
                 <div class="field">
                     <label class="label is-size-5">Name (Required)</label>
                     <div class="control">
-                        <input class="input" type="text" placeholder="John Smith" id="name-input">
+                        <input class="input inputs" type="text" placeholder="John Smith" id="name-input">
                     </div>
                 </div>
                 <div class="field">
                     <label class="label is-size-5">Link to photo</label>
                     <div class="control">
-                        <input class="input" type="text" placeholder="http://www.google.com/pictureofme.jpg" id="picture-input">
+                        <input class="input inputs" type="text" placeholder="http://www.google.com/pictureofme.jpg" id="picture-input">
                     </div>
                 </div>
             </div>
             <br>
-            <div class="survey control" style="border-top: 1px solid lightgray;">
+            <div class="survey" style="border-top: 1px solid lightgray;">
                 <br>
                 <h3 class="is-size-4">
                     <strong>Question 1</strong>
@@ -234,6 +235,60 @@
         <br>
         <br>
     </section>
+    <script>
+    //Function to validate all fields completed
+    var validateForm = function(){
+        // Set valid flag to true
+        var isValid = true;
+        // jQuery select input group, use if statement to compare for empty field
+        $(".inputs").each(function(){
+            if($(this) === "") {
+                isValid = false;
+            }
+        });
+        // jQuery select boxes, user if statement to compare empty field
+        $(".survey-select").each(function(){
+            if($(this) === "") {
+                isValid = false;
+            }
+        });
+        // return isValid from function
+        return isValid
+    };
+
+    // Event Listener for submit
+    $("#submit").on("click", function(){
+        validateForm();
+        // Check if valid
+        if(validateForm()) {
+            // Make object from form
+            var userData = {
+                name: $("#name-input").val().trim(),
+                photo: $("#picture-input").val().trim(),
+                scores: [
+                    $("#question-1").val(),
+                    $("#question-2").val(),
+                    $("#question-3").val(),
+                    $("#question-4").val(),
+                    $("#question-5").val(),
+                    $("#question-6").val(),
+                    $("#question-7").val(),
+                    $("#question-8").val(),
+                    $("#question-9").val(),
+                    $("#question-10").val()
+                ]
+            };
+            // Get URL from window (had to Google this one)
+            var currentURL = window.location.origin;
+            // Post data to API
+            $.post(currentURL + "/api/friends", userData, function(data){
+                alert("IT'S WORKING!");
+            })
+        }
+    })
+
     
+    
+    </script>
 </body>
 </html>

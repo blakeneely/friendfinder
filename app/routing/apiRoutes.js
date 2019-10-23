@@ -10,7 +10,7 @@ module.exports = function(app){
         var match = {
             name: "",
             photo: "",
-            difference: 1000        // Set high for so added scores don't go over
+            difference: 1000        // Set high so added scores don't go over
         };
 
         console.log(req.body);

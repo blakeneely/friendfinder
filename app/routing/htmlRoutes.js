@@ -6,8 +6,14 @@ module.exports = function(app){
     app.get("/survey",function(req, res){
         res.sendFile(path.join(__dirname + "/../public/survey.html"));
     });
-    // "*" failsafe defaults any route not predefined
-    app.get("*", function(req, res){
+    app.get("/", function(req, res){
         res.sendFile(path.join(__dirname + "/../public/home.html"));
     });
+    // failsafe defaults any route not predefined
+    // app.use(function(req,res){
+    //     res.sendFile(path.join(__dirname + "/../public/home.html"));
+    // });
+    // app.get("*", function(req, res){
+    //     res.sendFile(path.join(__dirname + "/../public/home.html"));
+    // });
 };
