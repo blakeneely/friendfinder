@@ -242,13 +242,13 @@
         var isValid = true;
         // jQuery select input group, use if statement to compare for empty field
         $(".inputs").each(function(){
-            if($(this) === "") {
+            if($(this).val() === "") {
                 isValid = false;
             }
         });
         // jQuery select boxes, user if statement to compare empty field
         $(".survey-select").each(function(){
-            if($(this) === "") {
+            if($(this).val() === "") {
                 isValid = false;
             }
         });
@@ -258,7 +258,6 @@
 
     // Event Listener for submit
     $("#submit").on("click", function(){
-        validateForm();
         // Check if valid
         if(validateForm()) {
             // Make object from form
