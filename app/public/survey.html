@@ -228,7 +228,7 @@
         <footer>
             <div>
                 <p>
-                    <a href="#">API Friends List</a>
+                    <a href="/api/friends">API Friends List</a>
                 </p>
             </div>
         </footer>
@@ -294,12 +294,20 @@
             var currentURL = window.location.origin;
             // Post data to API
             $.post(currentURL + "/api/friends", userData, function(data){
+                // jQuery the best matching name and photo into modal
+                $("#matchName").text(data.name);
+                $("#matchImg").attr("src", data.photo);
+                // Launch modal with result
                 $(".modal").toggleClass("is-active")
-                // alert("IT'S WORKING!");
             })
         }
-    })
+        else {
+            alert("Please complete all fields");
+        }
+        return false;
+    });
 
+    // Event listener to close modal
     $(".modal-close").on("click", function(){
         $(".modal").toggleClass("is-active");
     })
