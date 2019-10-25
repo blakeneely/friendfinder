@@ -7,17 +7,33 @@
     <title>Friend Finder</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        html {
+            margin: 0px;
+            height: 100%;
+            width: 100%;
+        }
+        body {
+            margin: 0px;
+            min-height: 100%;
+            width: 100%;
+            background: rgb(34, 34, 34);
+        }
+        .container {
+            padding-top: 30px;
+        }
+    </style>
 </head>
 <body>
     <section class="container">
-        <section class="hero is-medium has-background-light is-bold">
+        <section class="hero is-medium is-primary is-bold">
             <div class="hero-body">
             <div class="container">
                 <h1 class="title is-size-1 has-text-weight-bold">
                 <i class="fas fa-user-friends"></i>
                     Friend Finder
                 </h1>
-                <hr class="has-background-grey">
+                <hr>
                 <h2 class="subtitle is-size-3 has-text-weight-bold">
                     Answer a few basic questions.
                 </h2>
@@ -25,7 +41,7 @@
                     Then find the friend with the greatest compatibility!
                 </h2>
                 <div class="buttons">
-                    <a href="/survey" class="button is-link" id="survey-go">
+                    <a href="/survey" class="button is-link is-rounded" id="survey-go">
                         <i class="fas fa-poll" style="margin-right:5px"></i>
                         Go to Survey
                     </a>
