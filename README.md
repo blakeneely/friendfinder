@@ -1,7 +1,7 @@
 # Friend Finder
 
 ## Description
-FriendFinder is a full stack, dating web app. Once inside the user simply completes a survey and receives back their most compatible match "friend" based on thier answers. You can take a look at the deployed live website on <a href="#">here</a> on Heroku.
+FriendFinder is a full stack, dating web app. Once inside the user simply completes a survey and receives back their most compatible match "friend" based on thier answers. You can take a look at the deployed live website <a href="https://cryptic-eyrie-01155.herokuapp.com/ ">here on Heroku.</a>
 
 <img src="./app/images/friendfinder-group.png">
 
